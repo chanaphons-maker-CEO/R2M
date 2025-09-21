@@ -12,134 +12,129 @@
         body {
             font-family: 'Kanit', sans-serif;
             scroll-behavior: smooth;
+            background-color: #F9FAFB;
         }
+        /* New Hero Background */
         .hero-bg {
-            background-image: linear-gradient(to bottom, rgba(255, 255, 255, 0.8), rgba(255, 255, 255, 1)), url('https://placehold.co/1920x1080/e8f5e9/388e3c?text=Natural+Ingredients');
+            background-image: linear-gradient(to top, rgba(249, 250, 251, 1) 0%, rgba(249, 250, 251, 0) 50%), url('https://images.unsplash.com/photo-1542601906-8e50b1b36a7b?q=80&w=2940&auto=format&fit=crop');
             background-size: cover;
-            background-position: center;
+            background-position: center 30%;
         }
-        .fade-in {
+        .animated-fade-in {
             opacity: 0;
-            transform: translateY(30px);
+            transform: translateY(30px) scale(0.98);
             transition: opacity 0.8s ease-out, transform 0.8s ease-out;
         }
-        .fade-in.visible {
+        .animated-fade-in.visible {
             opacity: 1;
-            transform: translateY(0);
+            transform: translateY(0) scale(1);
         }
-        .icon-card {
+        .card-hover-effect {
             transition: transform 0.3s ease, box-shadow 0.3s ease;
         }
-        .icon-card:hover {
+        .card-hover-effect:hover {
             transform: translateY(-10px);
             box-shadow: 0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1);
         }
-        .comparison-table td, .comparison-table th {
-            transition: background-color 0.3s ease;
-        }
-        .comparison-table tr:hover td {
-            background-color: #f3f9f3;
-        }
         .glow-button {
-            box-shadow: 0 0 5px #16a34a, 0 0 10px #16a34a, 0 0 15px #16a34a;
-            transition: all 0.3s ease;
+            box-shadow: 0 0 8px rgba(22, 163, 74, 0.6), 0 0 16px rgba(22, 163, 74, 0.4);
+            transition: all 0.3s ease-in-out;
         }
         .glow-button:hover {
-            box-shadow: 0 0 10px #22c55e, 0 0 20px #22c55e, 0 0 30px #22c55e;
+            box-shadow: 0 0 15px rgba(34, 197, 94, 0.8), 0 0 30px rgba(34, 197, 94, 0.6);
             transform: scale(1.05);
         }
-        .team-card {
-            position: relative;
-            overflow: hidden;
-            border-radius: 1rem;
+        /* Subtle background pattern for sections */
+        .section-bg-pattern {
+             background-image: radial-gradient(#dcfce7 1px, transparent 1px);
+             background-size: 20px 20px;
         }
-        .team-card .overlay {
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            right: 0;
-            background: linear-gradient(to top, rgba(0,0,0,0.8), transparent);
-            color: white;
-            padding: 1.5rem 1rem 1rem;
-            transform: translateY(100%);
-            transition: transform 0.5s ease;
-        }
-        .team-card:hover .overlay {
-            transform: translateY(0);
-        }
-        .team-card img {
-            transition: transform 0.5s ease;
-        }
-        .team-card:hover img {
-            transform: scale(1.1);
+        .glassmorphism-nav {
+            background-color: rgba(255, 255, 255, 0.7);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border-bottom: 1px solid rgba(229, 231, 235, 0.5);
         }
     </style>
 </head>
-<body class="bg-gray-50 text-gray-800">
+<body class="text-gray-800">
 
     <!-- Navigation -->
-    <nav class="bg-white/80 backdrop-blur-lg sticky top-0 z-50 shadow-sm">
-        <div class="container mx-auto px-6 py-3 flex justify-between items-center">
+    <nav class="glassmorphism-nav sticky top-0 z-50">
+        <div class="container mx-auto px-6 py-4 flex justify-between items-center">
             <h1 class="text-3xl font-bold text-green-700">MUVITA</h1>
-            <div class="hidden md:flex space-x-8">
+            <div class="hidden md:flex items-center space-x-8 font-medium">
                 <a href="#science" class="text-gray-600 hover:text-green-700 transition duration-300">นวัตกรรม</a>
                 <a href="#team" class="text-gray-600 hover:text-green-700 transition duration-300">ทีมวิจัย</a>
                 <a href="#benefits" class="text-gray-600 hover:text-green-700 transition duration-300">คุณประโยชน์</a>
                 <a href="#contact" class="text-gray-600 hover:text-green-700 transition duration-300">ติดต่อเรา</a>
             </div>
-            <a href="#contact" class="hidden md:block bg-green-600 text-white px-5 py-2 rounded-full hover:bg-green-700 transition duration-300 glow-button">สั่งซื้อผลิตภัณฑ์</a>
+            <a href="#contact" class="hidden md:block bg-green-600 text-white px-6 py-2.5 rounded-full font-semibold hover:bg-green-700 transition duration-300 glow-button">สั่งซื้อผลิตภัณฑ์</a>
         </div>
     </nav>
 
     <!-- Hero Section -->
-    <header class="relative pt-24 pb-32 hero-bg">
+    <header class="relative pt-24 pb-48 hero-bg">
         <div class="container mx-auto px-6 text-center">
             <div class="max-w-4xl mx-auto">
-                <p class="text-green-600 font-semibold mb-2 fade-in">Get healthier and better life with happiness</p>
-                <h2 class="text-4xl md:text-6xl font-extrabold text-gray-800 mb-6 fade-in" style="transition-delay: 0.2s;">MUVITA - นวัตกรรมนมถั่วเหลืองผงสกัดจากผักแพวและใบหม่อนเพื่อสมองและกระดูก</h2>
-                <p class="text-lg md:text-xl text-gray-600 mb-10 fade-in" style="transition-delay: 0.4s;">พิสูจน์แล้วด้วยงานวิจัยระดับนานาชาติ พร้อมยกระดับการดูแลสุขภาพของคุณในทุกวันด้วยพลังจากธรรมชาติ</p>
-                <div class="flex justify-center items-center space-x-4 fade-in" style="transition-delay: 0.6s;">
-                    <a href="#science" class="bg-green-600 text-white px-8 py-4 rounded-full text-lg font-semibold hover:bg-green-700 transition duration-300 transform hover:scale-105 glow-button">สำรวจนวัตกรรม</a>
+                <p class="text-green-700 font-semibold mb-3 animated-fade-in">Get healthier and better life with happiness</p>
+                <h2 class="text-4xl md:text-6xl font-extrabold text-gray-900 mb-6 animated-fade-in" style="transition-delay: 0.2s;">MUVITA - นวัตกรรมนมถั่วเหลืองผงสกัดจากผักแพวและใบหม่อนเพื่อสมองและกระดูก</h2>
+                <p class="text-lg md:text-xl text-gray-600 mb-10 animated-fade-in" style="transition-delay: 0.4s;">พิสูจน์แล้วด้วยงานวิจัยระดับนานาชาติ พร้อมยกระดับการดูแลสุขภาพของคุณในทุกวันด้วยพลังจากธรรมชาติ</p>
+                <div class="flex justify-center items-center space-x-4 animated-fade-in" style="transition-delay: 0.6s;">
+                    <a href="#science" class="bg-green-600 text-white px-8 py-4 rounded-full text-lg font-semibold hover:bg-green-700 transition duration-300 transform glow-button">สำรวจนวัตกรรม</a>
                     <a href="#benefits" class="bg-white text-green-600 px-8 py-4 rounded-full text-lg font-semibold hover:bg-gray-100 transition duration-300 transform hover:scale-105 shadow-md">ดูคุณประโยชน์</a>
                 </div>
             </div>
         </div>
-         <div class="absolute bottom-0 left-0 w-full h-32 bg-gradient-to-t from-gray-50 to-transparent"></div>
     </header>
     
     <!-- Product Images -->
-    <section class="-mt-48 md:-mt-32 relative z-10">
+    <section class="-mt-40 relative z-10 pb-10">
         <div class="container mx-auto px-6">
-            <div class="flex justify-center items-end space-x-[-10%] md:space-x-[-5%]">
-                <img src="https://github.com/chanaphons-maker-CEO/R2M/blob/main/unnamed%20(3).png?raw=true" alt="MUVITA Sachet" class="w-1/2 md:w-1/3 max-w-sm fade-in" style="transition-delay: 0.8s;">
-                <img src="https://github.com/chanaphons-maker-CEO/R2M/blob/main/unnamed-1(1)(1).png?raw=true" alt="MUVITA Can" class="w-1/2 md:w-1/3 max-w-sm fade-in" style="transition-delay: 1s;">
+             <!-- Background decorative elements -->
+            <div class="absolute inset-0 flex items-center justify-center">
+                <div class="w-2/3 h-64 bg-emerald-100/50 rounded-full blur-3xl"></div>
             </div>
+             <!-- Product images container -->
+            <div class="relative flex justify-center items-center h-96">
+                <!-- Sachet -->
+                <img src="https://github.com/chanaphons-maker-CEO/R2M/blob/main/unnamed%20(3).png?raw=true" alt="MUVITA Sachet" 
+                     class="absolute w-1/2 md:w-1/3 max-w-xs animated-fade-in drop-shadow-2xl transform -rotate-12 hover:rotate-0 hover:scale-110 transition-transform duration-500 z-20" 
+                     style="transition-delay: 0.8s; left: 20%; top: 10%;">
+                
+                <!-- Can -->
+                <img src="https://github.com/chanaphons-maker-CEO/R2M/blob/main/unnamed-1(1)(1).png?raw=true" alt="MUVITA Can" 
+                     class="absolute w-1/2 md:w-1/3 max-w-xs animated-fade-in drop-shadow-2xl transform rotate-6 hover:rotate-0 hover:scale-110 transition-transform duration-500 z-10" 
+                     style="transition-delay: 1s; right: 20%; top: 15%;">
+            </div>
+            <!-- Platform -->
+            <div class="relative w-2/3 h-20 bg-white/50 backdrop-blur-sm rounded-[50%] mx-auto shadow-2xl -mt-16 animated-fade-in" style="transition-delay: 1.2s;"></div>
         </div>
     </section>
 
     <!-- Problem & Solution Section -->
-    <section class="py-20 bg-gray-50">
+    <section class="py-24 bg-white">
         <div class="container mx-auto px-6 text-center">
-            <h3 class="text-3xl font-bold mb-4 fade-in">สัญญาณแห่งวัยที่กังวลใจ</h3>
-            <p class="text-gray-600 max-w-3xl mx-auto mb-12 fade-in">คนไทยกว่า 15 ล้านคนเสี่ยงต่อภาวะกระดูกพรุน และอีกกว่า 1.3 ล้านคนเผชิญปัญหาความจำบกพร่อง ซึ่งส่งผลกระทบต่อคุณภาพชีวิตและสร้างค่าใช้จ่ายในการดูแลมหาศาล</p>
+            <h3 class="text-3xl font-bold mb-4 animated-fade-in">สัญญาณแห่งวัยที่กังวลใจ</h3>
+            <p class="text-gray-600 max-w-3xl mx-auto mb-16 animated-fade-in">คนไทยกว่า 15 ล้านคนเสี่ยงต่อภาวะกระดูกพรุน และอีกกว่า 1.3 ล้านคนเผชิญปัญหาความจำบกพร่อง ซึ่งส่งผลกระทบต่อคุณภาพชีวิตและสร้างค่าใช้จ่ายในการดูแลมหาศาล</p>
             <div class="grid md:grid-cols-3 gap-8 max-w-5xl mx-auto">
-                <div class="bg-white p-8 rounded-2xl shadow-lg fade-in icon-card">
-                    <div class="text-4xl mb-4">🧠</div>
+                <div class="bg-white p-8 rounded-2xl shadow-lg animated-fade-in card-hover-effect border border-gray-100">
+                    <div class="text-5xl mb-4">🧠</div>
                     <h4 class="text-xl font-semibold mb-2">ความจำที่ถดถอย</h4>
                     <p class="text-gray-600">หลงลืมง่าย ขาดสมาธิ คิดช้าลง ส่งผลกระทบต่อการทำงานและการใช้ชีวิต</p>
                 </div>
-                <div class="bg-white p-8 rounded-2xl shadow-lg fade-in icon-card" style="transition-delay: 0.2s;">
-                    <div class="text-4xl mb-4">🦴</div>
+                <div class="bg-white p-8 rounded-2xl shadow-lg animated-fade-in card-hover-effect border border-gray-100" style="transition-delay: 0.2s;">
+                    <div class="text-5xl mb-4">🦴</div>
                     <h4 class="text-xl font-semibold mb-2">ความแข็งแรงที่ลดลง</h4>
                     <p class="text-gray-600">ความเสี่ยงภาวะกระดูกพรุนที่เพิ่มขึ้นตามวัย โดยเฉพาะในสตรีวัยทอง</p>
                 </div>
-                <div class="bg-white p-8 rounded-2xl shadow-lg fade-in icon-card" style="transition-delay: 0.4s;">
-                    <div class="text-4xl mb-4">💊</div>
+                <div class="bg-white p-8 rounded-2xl shadow-lg animated-fade-in card-hover-effect border border-gray-100" style="transition-delay: 0.4s;">
+                    <div class="text-5xl mb-4">💊</div>
                     <h4 class="text-xl font-semibold mb-2">ขาดผลิตภัณฑ์ที่ตอบโจทย์</h4>
                     <p class="text-gray-600">ผลิตภัณฑ์ในตลาดมักขาดงานวิจัยรองรับ และไม่สะดวกเพราะต้องทานแยกหลายชนิด</p>
                 </div>
             </div>
-             <div class="mt-12 fade-in">
+             <div class="mt-16 animated-fade-in">
                  <p class="text-2xl font-semibold text-green-700">MUVITA คือคำตอบที่ครบ...จบในหนึ่งเดียว</p>
                  <p class="text-gray-600 mt-2 max-w-3xl mx-auto">นวัตกรรมที่ผสานพลังจากธรรมชาติเพื่อดูแลทั้งสมองและกระดูก พร้อมตอบโจทย์ไลฟ์สไตล์ยุคใหม่ที่ต้องการความสะดวกและเชื่อถือได้</p>
             </div>
@@ -147,35 +142,35 @@
     </section>
 
     <!-- The Science Behind MUVITA -->
-    <section id="science" class="py-20 bg-emerald-50/50">
+    <section id="science" class="py-24 section-bg-pattern">
         <div class="container mx-auto px-6">
-            <div class="text-center mb-12">
-                <h2 class="text-4xl font-extrabold text-gray-800">วิทยาศาสตร์เบื้องหลัง MUVITA</h2>
+            <div class="text-center mb-16">
+                <h2 class="text-4xl md:text-5xl font-extrabold text-gray-900">วิทยาศาสตร์เบื้องหลัง MUVITA</h2>
                 <p class="mt-4 text-lg text-gray-600 max-w-3xl mx-auto">ความแตกต่างที่พิสูจน์ได้ คือเหตุผลที่ทำให้ MUVITA เหนือกว่า</p>
             </div>
-            <div class="grid md:grid-cols-2 gap-12 items-center">
-                <div class="fade-in">
+            <div class="bg-white rounded-3xl shadow-xl p-8 md:p-12 grid md:grid-cols-2 gap-12 items-center animated-fade-in">
+                <div class="animated-fade-in">
                     <h3 class="text-2xl font-bold text-green-800 mb-4">พลังแห่งการเสริมฤทธิ์จากสมุนไพรไทย</h3>
-                    <p class="text-gray-700 mb-4">MUVITA ใช้สารสกัดสูตรเฉพาะจาก <span class="font-semibold text-green-700">ผักแพว (Polygonum odoratum)</span> และ <span class="font-semibold text-green-700">ใบหม่อน (Morus alba)</span> ที่งานวิจัยของเราพบว่ามีกลไกยับยั้งเอนไซม์ Acetylcholinesterase และ Monoamine oxidase ซึ่งช่วยเพิ่มสารสื่อประสาทที่เกี่ยวกับความจำ และยังทำงานเสริมฤทธิ์กัน (Synergistic Effect) ในการปรับสมดุลมวลกระดูก</p>
-                    <p class="text-gray-700">นี่คือนวัตกรรมที่แก้ปัญหาที่ต้นเหตุ แตกต่างจากผลิตภัณฑ์ทั่วไปในท้องตลาด</p>
+                    <p class="text-gray-700 mb-4 text-lg">MUVITA ใช้สารสกัดสูตรเฉพาะจาก <span class="font-semibold text-green-700">ผักแพว (Polygonum odoratum)</span> และ <span class="font-semibold text-green-700">ใบหม่อน (Morus alba)</span> ที่งานวิจัยของเราพบว่ามีกลไกยับยั้งเอนไซม์ Acetylcholinesterase และ Monoamine oxidase ซึ่งช่วยเพิ่มสารสื่อประสาทที่เกี่ยวกับความจำ และยังทำงานเสริมฤทธิ์กัน (Synergistic Effect) ในการปรับสมดุลมวลกระดูก</p>
+                    <p class="text-gray-700 text-lg">นี่คือนวัตกรรมที่แก้ปัญหาที่ต้นเหตุ แตกต่างจากผลิตภัณฑ์ทั่วไปในท้องตลาด</p>
                 </div>
-                <div class="grid grid-cols-1 gap-6 fade-in" style="transition-delay: 0.2s;">
-                    <div class="bg-white p-6 rounded-xl shadow-lg flex items-center space-x-4 icon-card">
-                        <div class="text-4xl">🔬</div>
+                <div class="grid grid-cols-1 gap-6 animated-fade-in" style="transition-delay: 0.2s;">
+                    <div class="bg-green-50/70 p-6 rounded-xl flex items-center space-x-4 card-hover-effect">
+                        <div class="text-4xl text-green-600">🔬</div>
                         <div>
                             <h4 class="font-bold text-lg">ตีพิมพ์วารสารนานาชาติ 3 ฉบับ</h4>
                             <p class="text-gray-600">ยืนยันประสิทธิภาพและความปลอดภัยด้วยผลการวิจัยทางคลินิกที่ได้รับการยอมรับในระดับสากล</p>
                         </div>
                     </div>
-                     <div class="bg-white p-6 rounded-xl shadow-lg flex items-center space-x-4 icon-card">
-                        <div class="text-4xl">🏆</div>
+                     <div class="bg-green-50/70 p-6 rounded-xl flex items-center space-x-4 card-hover-effect">
+                        <div class="text-4xl text-green-600">🏆</div>
                         <div>
                             <h4 class="font-bold text-lg">รางวัล Silver Prize Award 2019</h4>
                             <p class="text-gray-600">การันตีความเป็นเลิศด้านนวัตกรรมจากเวทีประกวดระดับโลก Seoul International Invention Fair</p>
                         </div>
                     </div>
-                     <div class="bg-white p-6 rounded-xl shadow-lg flex items-center space-x-4 icon-card">
-                        <div class="text-4xl">📜</div>
+                     <div class="bg-green-50/70 p-6 rounded-xl flex items-center space-x-4 card-hover-effect">
+                        <div class="text-4xl text-green-600">📜</div>
                         <div>
                             <h4 class="font-bold text-lg">คุ้มครองด้วยอนุสิทธิบัตรไทย</h4>
                             <p class="text-gray-600">สูตรเฉพาะหนึ่งเดียวที่ได้รับการคุ้มครองทรัพย์สินทางปัญญา (เลขที่ 10562)</p>
@@ -187,76 +182,42 @@
     </section>
 
     <!-- Research Team Section -->
-    <section id="team" class="py-20">
+    <section id="team" class="py-24 bg-white">
         <div class="container mx-auto px-6">
-            <div class="text-center mb-12">
-                <h2 class="text-4xl font-extrabold text-gray-800">นำโดยทีมวิจัยผู้เชี่ยวชาญ</h2>
+            <div class="text-center mb-16">
+                <h2 class="text-4xl md:text-5xl font-extrabold text-gray-900">นำโดยทีมวิจัยผู้เชี่ยวชาญ</h2>
                 <p class="mt-4 text-lg text-gray-600 max-w-3xl mx-auto">MUVITA คือผลลัพธ์จากความทุ่มเทของทีมวิจัยสหสาขาวิชาชีพ นำโดย ศาสตราจารย์ ดร.จินตนาภรณ์ วัฒนธร และคณะนักวิจัยผู้มีประสบการณ์ยาวนานกว่า 30 ปี</p>
             </div>
-            <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-6 max-w-6xl mx-auto fade-in">
-                <div class="team-card shadow-lg">
-                    <img src="https://placehold.co/300x400/e0e0e0/555555?text=Prof.+Jintanaporn" alt="ศาสตราจารย์ ดร.จินตนาภรณ์ วัฒนธร" class="w-full h-full object-cover">
-                    <div class="overlay">
-                        <h4 class="font-bold">ศ.ดร.จินตนาภรณ์ วัฒนธร</h4>
-                        <p class="text-sm">ผู้เชี่ยวชาญด้าน Functional Food กว่า 30 ปี</p>
-                    </div>
-                </div>
-                 <div class="team-card shadow-lg">
-                    <img src="https://placehold.co/300x400/e0e0e0/555555?text=Asst.Prof.+Wipawee" alt="ผู้ช่วยศาสตราจารย์ ดร.วิภาวี ทูคำมี" class="w-full h-full object-cover">
-                    <div class="overlay">
-                        <h4 class="font-bold">ผศ.ดร.วิภาวี ทูคำมี</h4>
-                        <p class="text-sm">ผู้เชี่ยวชาญด้าน Functional Food กว่า 10 ปี</p>
-                    </div>
-                </div>
-                 <div class="team-card shadow-lg">
-                    <img src="https://placehold.co/300x400/e0e0e0/555555?text=Medical+Specialist+1" alt="ทีมแพทย์ผู้เชี่ยวชาญ" class="w-full h-full object-cover">
-                    <div class="overlay">
-                        <h4 class="font-bold">ทีมแพทย์ผู้เชี่ยวชาญ</h4>
-                        <p class="text-sm">ประกอบด้วยแพทย์ผู้เชี่ยวชาญเฉพาะทางหลากหลายสาขา</p>
-                    </div>
-                </div>
-                <div class="team-card shadow-lg">
-                    <img src="https://placehold.co/300x400/e0e0e0/555555?text=Medical+Specialist+2" alt="ทีมแพทย์ผู้เชี่ยวชาญ" class="w-full h-full object-cover">
-                    <div class="overlay">
-                        <h4 class="font-bold">ทีมวิจัยและพัฒนา</h4>
-                        <p class="text-sm">นักวิจัยด้านประสาทวิทยาศาสตร์และสรีรวิทยา</p>
-                    </div>
-                </div>
-                 <div class="team-card shadow-lg">
-                    <img src="https://placehold.co/300x400/e0e0e0/555555?text=Gen.+Monthon" alt="พลเอก มณฑล วัฒนธร" class="w-full h-full object-cover">
-                    <div class="overlay">
-                        <h4 class="font-bold">พล.อ. มณฑล วัฒนธร</h4>
-                        <p class="text-sm">ผู้เชี่ยวชาญด้านการจัดการและบัญชี</p>
-                    </div>
-                </div>
+            <div class="max-w-5xl mx-auto animated-fade-in">
+                <img src="https://github.com/chanaphons-maker-CEO/R2M/blob/main/Screenshot%202025-09-21%20143400.png?raw=true" alt="ทีมวิจัย MUVITA" class="rounded-2xl shadow-2xl w-full">
             </div>
         </div>
     </section>
 
     <!-- Key Benefits Section -->
-    <section id="benefits" class="py-20 bg-gray-50">
+    <section id="benefits" class="py-24">
         <div class="container mx-auto px-6">
-            <div class="text-center mb-12">
-                <h2 class="text-4xl font-extrabold text-gray-800">คุณประโยชน์เพื่อชีวิตที่ดีกว่า</h2>
+            <div class="text-center mb-16">
+                <h2 class="text-4xl md:text-5xl font-extrabold text-gray-900">คุณประโยชน์เพื่อชีวิตที่ดีกว่า</h2>
                 <p class="mt-4 text-lg text-gray-600 max-w-3xl mx-auto">ดูแลสุขภาพองค์รวมอย่างครบครันในทุกแก้วที่ดื่ม</p>
             </div>
             <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
-                <div class="text-center bg-white p-8 rounded-2xl shadow-lg fade-in icon-card">
+                <div class="text-center bg-white p-8 rounded-2xl shadow-lg animated-fade-in card-hover-effect border border-gray-100">
                     <div class="text-5xl mb-4">🧠</div>
                     <h3 class="text-xl font-bold mb-2">เสริมประสิทธิภาพสมอง</h3>
                     <p class="text-gray-600">ช่วยเพิ่มความจำ (Working Memory) ลดอาการสมองล้า และเพิ่มสมาธิ</p>
                 </div>
-                <div class="text-center bg-white p-8 rounded-2xl shadow-lg fade-in icon-card" style="transition-delay: 0.2s;">
+                <div class="text-center bg-white p-8 rounded-2xl shadow-lg animated-fade-in card-hover-effect border border-gray-100" style="transition-delay: 0.2s;">
                     <div class="text-5xl mb-4">🦴</div>
                     <h3 class="text-xl font-bold mb-2">ดูแลสุขภาพกระดูก</h3>
                     <p class="text-gray-600">ช่วยปรับสมดุลการสร้างและสลายมวลกระดูก ลดความเสี่ยงภาวะกระดูกพรุน</p>
                 </div>
-                <div class="text-center bg-white p-8 rounded-2xl shadow-lg fade-in icon-card" style="transition-delay: 0.4s;">
+                <div class="text-center bg-white p-8 rounded-2xl shadow-lg animated-fade-in card-hover-effect border border-gray-100" style="transition-delay: 0.4s;">
                     <div class="text-5xl mb-4">🌿</div>
                     <h3 class="text-xl font-bold mb-2">อุดมด้วยสารต้านอนุมูลอิสระ</h3>
                     <p class="text-gray-600">โปรตีนพืชคุณภาพสูงและฟลาโวนอยด์ ช่วยชะลอความเสื่อมของเซลล์</p>
                 </div>
-                <div class="text-center bg-white p-8 rounded-2xl shadow-lg fade-in icon-card" style="transition-delay: 0.6s;">
+                <div class="text-center bg-white p-8 rounded-2xl shadow-lg animated-fade-in card-hover-effect border border-gray-100" style="transition-delay: 0.6s;">
                     <div class="text-5xl mb-4">🥛</div>
                     <h3 class="text-xl font-bold mb-2">ปลอดภัย ดื่มง่าย</h3>
                     <p class="text-gray-600">เป็นทางเลือกที่ดีสำหรับผู้แพ้นมวัวหรือไม่สามารถย่อยแลคโตสได้</p>
@@ -266,9 +227,9 @@
     </section>
 
     <!-- Testimonial -->
-    <section class="py-20">
+    <section class="py-24 section-bg-pattern">
          <div class="container mx-auto px-6 text-center">
-             <div class="max-w-3xl mx-auto fade-in">
+             <div class="max-w-3xl mx-auto animated-fade-in">
                 <div class="text-5xl text-green-500">❞</div>
                 <p class="text-2xl md:text-3xl font-light italic text-gray-700 my-4">
                     “นอนหลับดีขึ้น ไม่ต้องทานยานอนหลับเลย”
@@ -280,18 +241,18 @@
 
     <!-- Footer / Contact Section -->
     <footer id="contact" class="bg-green-800 text-white">
-        <div class="container mx-auto px-6 py-16">
+        <div class="container mx-auto px-6 py-20">
             <div class="grid md:grid-cols-2 gap-12 items-center">
-                <div class="fade-in">
+                <div class="animated-fade-in">
                     <h2 class="text-4xl font-bold mb-4">เริ่มต้นดูแลสุขภาพองค์รวมวันนี้</h2>
-                    <p class="text-green-200 mb-6">MUVITA พร้อมเป็นผู้ช่วยดูแลสุขภาพสมองและกระดูกของคุณและคนที่คุณรัก ติดต่อเพื่อสั่งซื้อหรือสอบถามข้อมูลเพิ่มเติมได้ทันที</p>
-                     <div class="space-y-4">
+                    <p class="text-green-200 mb-6 text-lg">MUVITA พร้อมเป็นผู้ช่วยดูแลสุขภาพสมองและกระดูกของคุณและคนที่คุณรัก ติดต่อเพื่อสั่งซื้อหรือสอบถามข้อมูลเพิ่มเติมได้ทันที</p>
+                     <div class="space-y-4 text-lg">
                         <p><span class="font-semibold">จัดจำหน่ายโดย:</span> บริษัท JWF จำกัด</p>
                         <p><span class="font-semibold">โทร:</span> 094-382-4949, 099-482-3009</p>
                         <p><span class="font-semibold">LINE ID:</span> @jwf_lineofficial</p>
                      </div>
                 </div>
-                <div class="bg-white text-gray-800 p-8 rounded-2xl shadow-2xl fade-in" style="transition-delay: 0.2s;">
+                <div class="bg-white text-gray-800 p-8 rounded-2xl shadow-2xl animated-fade-in" style="transition-delay: 0.2s;">
                     <h3 class="text-2xl font-bold mb-6 text-center">สั่งซื้อ MUVITA</h3>
                     <div class="flex justify-around items-start text-center mb-6 space-x-4">
                         <div>
@@ -306,22 +267,21 @@
                             <p class="text-3xl font-bold text-green-700 mt-1">70 บาท</p>
                         </div>
                     </div>
-                    <a href="#" class="w-full block text-center bg-green-600 text-white text-xl font-bold py-4 px-6 rounded-full hover:bg-green-700 transition duration-300 transform hover:scale-105 glow-button">
+                    <a href="#" class="w-full block text-center bg-green-600 text-white text-xl font-bold py-4 px-6 rounded-full hover:bg-green-700 transition duration-300 transform glow-button">
                         สั่งซื้อออนไลน์
                     </a>
                     <p class="text-center text-sm text-gray-500 mt-4">หรือติดต่อผ่านตัวแทนจำหน่ายของเรา</p>
                 </div>
             </div>
-            <div class="text-center mt-16 border-t border-green-700 pt-8">
+            <div class="text-center mt-20 border-t border-green-700/50 pt-8">
                 <p class="text-green-300">&copy; 2025 MUVITA by JWF Co., Ltd. All Rights Reserved.</p>
             </div>
         </div>
     </footer>
 
-
     <script>
         document.addEventListener('DOMContentLoaded', function() {
-            const faders = document.querySelectorAll('.fade-in');
+            const faders = document.querySelectorAll('.animated-fade-in');
 
             const appearOptions = {
                 threshold: 0.1,
